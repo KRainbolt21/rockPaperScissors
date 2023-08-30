@@ -3,6 +3,4 @@ function getComputerChoice(answer) {
     return choice[Math.floor((Math.random()*choice.length))];
 }
 
-function playerSelection(response) {
-    prompt("Choose between rock, paper, or scissors.");
-}
+let playerSelection = prompt("Choose between rock, paper, or scissors", "");
