@@ -3,4 +3,6 @@ function getComputerChoice(answer) {
     return choice[Math.floor((Math.random()*choice.length))];
 }
 
-console.log(getComputerChoice());
+function playerSelection(response) {
+    prompt("Choose between rock, paper, or scissors.");
+}
