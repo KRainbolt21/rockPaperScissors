@@ -29,10 +29,10 @@ let computerScore = 0;
 let playerScore = 0;
 
 function game(playRound) {
-  if(alert == "You lose. Scissors beat paper" || alert == "You lose. Rock beats scissors" || alert == "You lose. Paper beats rock") {
-       return computerScore++;
-    } else if(alert == "You win! Paper beats rock" || alert == "You win! rock beats scissors" || alert == "You win! Scissors beat paper") {
-        return playerScore++;
+  if(playRound == "You lose.") {
+       return ++computerScore;
+    } else if(playRound == "You win!") {
+        return ++playerScore;
     }
 }
 
