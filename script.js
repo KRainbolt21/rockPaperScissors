@@ -3,10 +3,9 @@ function getComputerChoice(answer) {
     return choice[Math.floor((Math.random()*choice.length))];
 }
 
-let playerSelection = prompt("Choose between rock, paper, or scissors", "");
+let playerChoice = prompt("Choose between rock, paper, or scissors", "");
 let computerSelection = getComputerChoice();
-
-console.log(computerSelection);
+let playerSelection = playerChoice.toLowerCase();
 
 function playRound(playerSelection, computerSelection) {
     if(playerSelection == "paper" && computerSelection == "Scissors") {
