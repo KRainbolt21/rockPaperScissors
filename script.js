@@ -25,15 +25,17 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-let computerScore = 0;
-let playerScore = 0;
+console.log(playRound(playerSelection, computerSelection));
 
-function game(playRound) {
-  if(playRound == "You lose.") {
+const outcome = playRound(playerSelection, computerSelection);
+
+function game(outcome, computerScore, playerScore) {
+  if(outcome == "You lose.") {
        return ++computerScore;
-    } else if(playRound == "You win!") {
+    } else if(outcome == "You win!") {
         return ++playerScore;
     }
 }
 
-console.log(computerScore);
+let computerScore = 0;
+let playerScore = 0;
