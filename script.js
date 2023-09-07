@@ -8,9 +8,13 @@ let computerSelection = getComputerChoice();
 let playerSelection = playerChoice.toLowerCase();
 
 function playRound(playerSelection, computerSelection) {
-    if(playerSelection == "paper" && computerSelection == "Scissors" || playerSelection == "scissors" && computerSelection == "Rock" ||playerSelection == "rock" && computerSelection == "Paper") {
+    if(playerSelection == "paper" && computerSelection == "Scissors" || 
+       playerSelection == "scissors" && computerSelection == "Rock" ||
+       playerSelection == "rock" && computerSelection == "Paper") {
         return "You lose.";
-    } else if (playerSelection == "paper" && computerSelection == "Rock" || playerSelection == "rock" && computerSelection == "Scissors" || layerSelection == "scissors" && computerSelection == "Paper") {
+    } else if (playerSelection == "paper" && computerSelection == "Rock" || 
+               playerSelection == "rock" && computerSelection == "Scissors" || 
+               playerSelection == "scissors" && computerSelection == "Paper") {
         return "You win!";
     } else {
         return "It's a tie!";
@@ -18,5 +22,21 @@ function playRound(playerSelection, computerSelection) {
 }
 
 const outcome = playRound(playerSelection, computerSelection);
-let playerScore = 0;
-let computerScore = 0;
+
+function playerScore(outcome) {
+    if(outcome == "You win!") {
+        return 1;
+    }else {
+        return 0;
+    }
+};
+
+function computerScore(outcome) {
+    if (outcome == "You lose.") {
+        return 1;
+    }else {
+        return 0;
+    }
+}
+
+console.log(playerScore(outcome), computerScore(outcome));
