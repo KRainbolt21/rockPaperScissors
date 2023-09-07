@@ -42,3 +42,11 @@ function computerScoring(outcome) {
 }
 
 console.log(playerScoring(outcome), computerScoring(outcome));
+
+function game(playerScore, computerScore) {
+    if(playerScore == 5) {
+        alert("Congratulations, you've won! You scored `${playerScore}` and the computer scored `${computerScore}`. ")
+    }else if(computerScore == 5) {
+        alert("Sorry, you've lost. You scored `${playerScore}` and the computer scored `${computerScore}`. ")
+    }
+}
