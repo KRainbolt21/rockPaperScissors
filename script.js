@@ -22,21 +22,23 @@ function playRound(playerSelection, computerSelection) {
 }
 
 const outcome = playRound(playerSelection, computerSelection);
+let playerScore = 0;
+let computerScore = 0;
 
-function playerScore(outcome) {
+function playerScoring(outcome) {
     if(outcome == "You win!") {
-        return 1;
+        return ++playerScore;
     }else {
-        return 0;
+        return playerScore;
     }
 };
 
-function computerScore(outcome) {
+function computerScoring(outcome) {
     if (outcome == "You lose.") {
-        return 1;
+        return ++computerScore
     }else {
-        return 0;
+        return computerScore;
     }
 }
 
-console.log(playerScore(outcome), computerScore(outcome));
+console.log(playerScoring(outcome), computerScoring(outcome));
