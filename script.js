@@ -2,10 +2,7 @@ function getComputerChoice(answer) {
     const choice = ["Rock", "Paper", "Scissors"];
     return choice[Math.floor((Math.random()*choice.length))];
 }
-
-let playerChoice = prompt("Choose between rock, paper, or scissors", "");
 let computerSelection = getComputerChoice();
-let playerSelection = playerChoice.toLowerCase();
 
 function playRound(playerSelection, computerSelection) {
     if(playerSelection == "paper" && computerSelection == "Scissors" || 
@@ -41,6 +38,8 @@ function computerScoring(outcome) {
     }
 }
 
+setInterval(getComputerChoice, 5000);
+
 console.log(playerScoring(outcome), computerScoring(outcome));
 
 function game(playerScore, computerScore) {
@@ -50,3 +49,16 @@ function game(playerScore, computerScore) {
         alert("Sorry, you've lost. You scored `${playerScore}` and the computer scored `${computerScore}`. ")
     }
 }
+
+const sumAll = function(num, num2) {
+    let sumValue = [];
+    let sum = 0;
+
+    for(let i=num; i<=num2; i++) {
+        sumValue.push(i);
+    }
+
+    for(let i=0; i<sumValue.length; i++) {
+        sum += sumValue[i];
+    }
+};
