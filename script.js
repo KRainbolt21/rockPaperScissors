@@ -1,5 +1,5 @@
 function getComputerChoice() {
-    const choice = ["Rock", "Paper", "Scissors"];
+    const choice = ["rock", "paper", "scissors"];
     return choice[Math.floor((Math.random()*choice.length))];
 }
 
@@ -11,10 +11,12 @@ document.querySelector("#rock").onclick = function() {
     getComputerChoice();
     computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
-
-    console.log(playRound(playerSelection, computerSelection));
-    console.log(playerSelection);
-    console.log(computerSelection);
+    const roundExplanation = document.createElement("div");
+    const mainPage = document.querySelector(".mainPage");
+    roundExplanation.classList.add("explain");
+    roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
+    ${computerSelection}. ${roundOutcome}`;
+    mainPage.appendChild(roundExplanation);
 }
 
 document.querySelector("#paper").onclick = function() {
@@ -22,10 +24,13 @@ document.querySelector("#paper").onclick = function() {
     getComputerChoice();
     computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
+    const mainPage = document.querySelector(".mainPage");
+    const roundExplanation = document.createElement("div");
+    roundExplanation.classList.add("explain");
+    roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
+    ${computerSelection}. ${roundOutcome}`; 
+    mainPage.appendChild(roundExplanation);
 
-    console.log(playRound(playerSelection, computerSelection));
-    console.log(playerSelection);
-    console.log(computerSelection);
 }
 
 document.querySelector("#scissors").onclick = function() {
@@ -33,11 +38,15 @@ document.querySelector("#scissors").onclick = function() {
     getComputerChoice();
     computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
+    const mainPage = document.querySelector(".mainPage");
+    const roundExplanation = document.createElement("div");
+    roundExplanation.classList.add("explain");
+    roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
+    ${computerSelection}. ${roundOutcome}`;
+    mainPage.appendChild(roundExplanation);
 
-    console.log(playRound(playerSelection, computerSelection));
-    console.log(playerSelection);
-    console.log(computerSelection);
 }
+let roundOutcome = playRound(playerSelection, computerSelection);
 
 function playRound(playerSelection, computerSelection) {
     if(playerSelection == "paper" && computerSelection == "Scissors" || 
