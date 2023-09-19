@@ -1,27 +1,40 @@
-function getComputerChoice(answer) {
+function getComputerChoice() {
     const choice = ["Rock", "Paper", "Scissors"];
     return choice[Math.floor((Math.random()*choice.length))];
 }
-let computerSelection = getComputerChoice();
 
-const buttons = document.querySelectorAll('button');
-
+let computerSelection = "";
 let playerSelection = "";
 
 document.querySelector("#rock").onclick = function() {
     playerSelection = 'rock';
+    getComputerChoice();
+    computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+
+    console.log(playRound(playerSelection, computerSelection));
     console.log(playerSelection);
     console.log(computerSelection);
 }
 
 document.querySelector("#paper").onclick = function() {
     playerSelection = "paper";
+    getComputerChoice();
+    computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+
+    console.log(playRound(playerSelection, computerSelection));
     console.log(playerSelection);
-    console.log(compuerSelection);
+    console.log(computerSelection);
 }
 
 document.querySelector("#scissors").onclick = function() {
     playerSelection = "scissors";
+    getComputerChoice();
+    computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+
+    console.log(playRound(playerSelection, computerSelection));
     console.log(playerSelection);
     console.log(computerSelection);
 }
@@ -38,4 +51,5 @@ function playRound(playerSelection, computerSelection) {
     } else {
         return "It's a tie!";
     }
+    
 }
