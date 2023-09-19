@@ -15,7 +15,7 @@ document.querySelector("#rock").onclick = function() {
     const mainPage = document.querySelector(".mainPage");
     roundExplanation.classList.add("explain");
     roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
-    ${computerSelection}. ${roundOutcome}`;
+    ${computerSelection}. ${playRound(playerSelection, computerSelection)}`;
     mainPage.appendChild(roundExplanation);
 }
 
@@ -28,7 +28,7 @@ document.querySelector("#paper").onclick = function() {
     const roundExplanation = document.createElement("div");
     roundExplanation.classList.add("explain");
     roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
-    ${computerSelection}. ${roundOutcome}`; 
+    ${computerSelection}. ${playRound(playerSelection, computerSelection)}`; 
     mainPage.appendChild(roundExplanation);
 
 }
@@ -42,20 +42,19 @@ document.querySelector("#scissors").onclick = function() {
     const roundExplanation = document.createElement("div");
     roundExplanation.classList.add("explain");
     roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
-    ${computerSelection}. ${roundOutcome}`;
+    ${computerSelection}. ${playRound(playerSelection, computerSelection)}`;
     mainPage.appendChild(roundExplanation);
 
 }
-let roundOutcome = playRound(playerSelection, computerSelection);
 
 function playRound(playerSelection, computerSelection) {
-    if(playerSelection == "paper" && computerSelection == "Scissors" || 
-       playerSelection == "scissors" && computerSelection == "Rock" ||
-       playerSelection == "rock" && computerSelection == "Paper") {
+    if(playerSelection == "paper" && computerSelection == "scissors" || 
+       playerSelection == "scissors" && computerSelection == "rock" ||
+       playerSelection == "rock" && computerSelection == "paper") {
         return "You lose.";
-    } else if (playerSelection == "paper" && computerSelection == "Rock" || 
-               playerSelection == "rock" && computerSelection == "Scissors" || 
-               playerSelection == "scissors" && computerSelection == "Paper") {
+    } else if (playerSelection == "paper" && computerSelection == "rock" || 
+               playerSelection == "rock" && computerSelection == "scissors" || 
+               playerSelection == "scissors" && computerSelection == "paper") {
         return "You win!";
     } else {
         return "It's a tie!";
