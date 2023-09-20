@@ -1,20 +1,22 @@
 function getComputerChoice() {
-    const choice = ["Rock", "Paper", "Scissors"];
+    const choice = ["rock", "paper", "scissors"];
     return choice[Math.floor((Math.random()*choice.length))];
 }
 
 let computerSelection = "";
 let playerSelection = "";
+const roundExplanation = document.createElement("div");
 
 document.querySelector("#rock").onclick = function() {
     playerSelection = 'rock';
     getComputerChoice();
     computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
-
-    console.log(playRound(playerSelection, computerSelection));
-    console.log(playerSelection);
-    console.log(computerSelection);
+    const mainPage = document.querySelector(".mainPage");
+    roundExplanation.classList.add("explain");
+    roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
+    ${computerSelection}. ${playRound(playerSelection, computerSelection)}`;
+    mainPage.appendChild(roundExplanation);
 }
 
 document.querySelector("#paper").onclick = function() {
@@ -22,10 +24,12 @@ document.querySelector("#paper").onclick = function() {
     getComputerChoice();
     computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
+    const mainPage = document.querySelector(".mainPage");
+    roundExplanation.classList.add("explain");
+    roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
+    ${computerSelection}. ${playRound(playerSelection, computerSelection)}`; 
+    mainPage.appendChild(roundExplanation);
 
-    console.log(playRound(playerSelection, computerSelection));
-    console.log(playerSelection);
-    console.log(computerSelection);
 }
 
 document.querySelector("#scissors").onclick = function() {
@@ -33,20 +37,22 @@ document.querySelector("#scissors").onclick = function() {
     getComputerChoice();
     computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
+    const mainPage = document.querySelector(".mainPage");
+    roundExplanation.classList.add("explain");
+    roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
+    ${computerSelection}. ${playRound(playerSelection,computerSelection)}`;
+    mainPage.appendChild(roundExplanation);
 
-    console.log(playRound(playerSelection, computerSelection));
-    console.log(playerSelection);
-    console.log(computerSelection);
 }
 
 function playRound(playerSelection, computerSelection) {
-    if(playerSelection == "paper" && computerSelection == "Scissors" || 
-       playerSelection == "scissors" && computerSelection == "Rock" ||
-       playerSelection == "rock" && computerSelection == "Paper") {
+    if(playerSelection == "paper" && computerSelection == "scissors" || 
+       playerSelection == "scissors" && computerSelection == "rock" ||
+       playerSelection == "rock" && computerSelection == "paper") {
         return "You lose.";
-    } else if (playerSelection == "paper" && computerSelection == "Rock" || 
-               playerSelection == "rock" && computerSelection == "Scissors" || 
-               playerSelection == "scissors" && computerSelection == "Paper") {
+    } else if (playerSelection == "paper" && computerSelection == "rock" || 
+               playerSelection == "rock" && computerSelection == "scissors" || 
+               playerSelection == "scissors" && computerSelection == "paper") {
         return "You win!";
     } else {
         return "It's a tie!";
