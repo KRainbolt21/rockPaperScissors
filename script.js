@@ -6,17 +6,31 @@ function getComputerChoice() {
 let computerSelection = "";
 let playerSelection = "";
 const roundExplanation = document.createElement("div");
+let outcome = "";
+const score = document.createElement("div");
+const computerScore = document.createElement("p");
+const playerScore = document.createElement("p");
 
 document.querySelector("#rock").onclick = function() {
     playerSelection = 'rock';
     getComputerChoice();
     computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
+
     const mainPage = document.querySelector(".mainPage");
     roundExplanation.classList.add("explain");
     roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
     ${computerSelection}. ${playRound(playerSelection, computerSelection)}`;
     mainPage.appendChild(roundExplanation);
+
+    score.classList.add("scoring");
+    computerScore.textContent = `Computer score:`;
+    playerScore.textContent = `Player score:`
+    mainPage.appendChild(score);
+    score.appendChild(computerScore);
+    score.appendChild(playerScore);
+
+    outcome = playRound(playerSelection, computerSelection);
 }
 
 document.querySelector("#paper").onclick = function() {
@@ -24,12 +38,21 @@ document.querySelector("#paper").onclick = function() {
     getComputerChoice();
     computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
+
     const mainPage = document.querySelector(".mainPage");
     roundExplanation.classList.add("explain");
     roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
     ${computerSelection}. ${playRound(playerSelection, computerSelection)}`; 
     mainPage.appendChild(roundExplanation);
 
+    score.classList.add("scoring");
+    computerScore.textContent = `Computer score:`;
+    playerScore.textContent = `Player score:`
+    mainPage.appendChild(score);
+    score.appendChild(computerScore);
+    score.appendChild(playerScore);
+
+    outcome = playRound(playerSelection, computerSelection);
 }
 
 document.querySelector("#scissors").onclick = function() {
@@ -37,12 +60,21 @@ document.querySelector("#scissors").onclick = function() {
     getComputerChoice();
     computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
+    
     const mainPage = document.querySelector(".mainPage");
     roundExplanation.classList.add("explain");
     roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
     ${computerSelection}. ${playRound(playerSelection,computerSelection)}`;
     mainPage.appendChild(roundExplanation);
 
+    score.classList.add("scoring");
+    computerScore.textContent = `Computer score:`;
+    playerScore.textContent = `Player score:`
+    mainPage.appendChild(score);
+    score.appendChild(computerScore);
+    score.appendChild(playerScore);
+
+    outcome = playRound(playerSelection, computerSelection);
 }
 
 function playRound(playerSelection, computerSelection) {
