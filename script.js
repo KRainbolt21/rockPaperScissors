@@ -25,7 +25,7 @@ document.querySelector("#rock").onclick = function() {
 
     outcome = playRound(playerSelection, computerSelection);
     keepScore(outcome);
-    
+
     score.classList.add("scoring");
     computerScore.textContent = `Computer score: ${computerScoring}`;
     playerScore.textContent = `Player score: ${playerScoring}`
@@ -103,5 +103,13 @@ function keepScore(outcome) {
         return ++playerScoring;
     } else if(outcome == "You lose.") {
         return ++computerScoring;
+    }
+}
+
+function declareWinner(playerScoring, computerScoring) {
+    if(playerScoring == 5) {
+        return "Congratulations, you won the game!";
+    } else if(computerScoring == 5) {
+        return "Sorry, you lost the game. Better luck next time!"
     }
 }
