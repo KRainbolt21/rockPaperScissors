@@ -23,14 +23,15 @@ document.querySelector("#rock").onclick = function() {
     ${computerSelection}. ${playRound(playerSelection, computerSelection)}`;
     mainPage.appendChild(roundExplanation);
 
+    outcome = playRound(playerSelection, computerSelection);
+    keepScore(outcome);
+    
     score.classList.add("scoring");
-    computerScore.textContent = `Computer score:`;
-    playerScore.textContent = `Player score:`
+    computerScore.textContent = `Computer score: ${computerScoring}`;
+    playerScore.textContent = `Player score: ${playerScoring}`
     mainPage.appendChild(score);
     score.appendChild(computerScore);
     score.appendChild(playerScore);
-
-    outcome = playRound(playerSelection, computerSelection);
 }
 
 document.querySelector("#paper").onclick = function() {
@@ -45,14 +46,15 @@ document.querySelector("#paper").onclick = function() {
     ${computerSelection}. ${playRound(playerSelection, computerSelection)}`; 
     mainPage.appendChild(roundExplanation);
 
+    outcome = playRound(playerSelection, computerSelection);
+    keepScore(outcome);
+
     score.classList.add("scoring");
-    computerScore.textContent = `Computer score:`;
-    playerScore.textContent = `Player score:`
+    computerScore.textContent = `Computer score: ${computerScoring}`;
+    playerScore.textContent = `Player score: ${playerScoring}`
     mainPage.appendChild(score);
     score.appendChild(computerScore);
     score.appendChild(playerScore);
-
-    outcome = playRound(playerSelection, computerSelection);
 }
 
 document.querySelector("#scissors").onclick = function() {
@@ -67,14 +69,15 @@ document.querySelector("#scissors").onclick = function() {
     ${computerSelection}. ${playRound(playerSelection,computerSelection)}`;
     mainPage.appendChild(roundExplanation);
 
+    outcome = playRound(playerSelection, computerSelection);
+    keepScore(outcome);
+
     score.classList.add("scoring");
-    computerScore.textContent = `Computer score:`;
-    playerScore.textContent = `Player score:`
+    computerScore.textContent = `Computer score: ${computerScoring}`;
+    playerScore.textContent = `Player score: ${playerScoring}`
     mainPage.appendChild(score);
     score.appendChild(computerScore);
     score.appendChild(playerScore);
-
-    outcome = playRound(playerSelection, computerSelection);
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -97,8 +100,8 @@ let computerScoring = 0;
 
 function keepScore(outcome) {
     if(outcome == "You win!") {
-        return playerScoring++;
+        return ++playerScoring;
     } else if(outcome == "You lose.") {
-        return computerScoring++;
+        return ++computerScoring;
     }
 }
