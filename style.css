@@ -7,15 +7,19 @@ body {
     gap: 75px;
 }
 
-.header {
+.header, .explain {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-h1 {
+h1, .explain {
     background-color: white;
     padding: 30px 100px;
+}
+
+.explain {
+    margin-top: 20px;
 }
 
 .buttons {
