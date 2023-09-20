@@ -60,7 +60,7 @@ document.querySelector("#scissors").onclick = function() {
     getComputerChoice();
     computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
-    
+
     const mainPage = document.querySelector(".mainPage");
     roundExplanation.classList.add("explain");
     roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
@@ -90,4 +90,15 @@ function playRound(playerSelection, computerSelection) {
         return "It's a tie!";
     }
     
+}
+
+let playerScoring = 0;
+let computerScoring = 0;
+
+function keepScore(outcome) {
+    if(outcome == "You win!") {
+        return playerScoring++;
+    } else if(outcome == "You lose.") {
+        return computerScoring++;
+    }
 }
