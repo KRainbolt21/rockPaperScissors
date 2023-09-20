@@ -20,6 +20,13 @@ h1, .explain {
 
 .explain {
     margin-top: 20px;
+    font-size: 20px;
+}
+
+.scoring {
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .buttons {
