@@ -10,6 +10,7 @@ let outcome = "";
 const score = document.createElement("div");
 const computerScore = document.createElement("p");
 const playerScore = document.createElement("p");
+const mainPage = document.querySelector(".mainPage");
 
 document.querySelector("#rock").onclick = function() {
     playerSelection = 'rock';
@@ -17,7 +18,6 @@ document.querySelector("#rock").onclick = function() {
     computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
 
-    const mainPage = document.querySelector(".mainPage");
     roundExplanation.classList.add("explain");
     roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
     ${computerSelection}. ${playRound(playerSelection, computerSelection)}`;
@@ -32,6 +32,8 @@ document.querySelector("#rock").onclick = function() {
     mainPage.appendChild(score);
     score.appendChild(computerScore);
     score.appendChild(playerScore);
+
+    declareWinner(playerScoring, computerScoring);
 }
 
 document.querySelector("#paper").onclick = function() {
@@ -40,7 +42,6 @@ document.querySelector("#paper").onclick = function() {
     computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
 
-    const mainPage = document.querySelector(".mainPage");
     roundExplanation.classList.add("explain");
     roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
     ${computerSelection}. ${playRound(playerSelection, computerSelection)}`; 
@@ -55,6 +56,8 @@ document.querySelector("#paper").onclick = function() {
     mainPage.appendChild(score);
     score.appendChild(computerScore);
     score.appendChild(playerScore);
+
+    declareWinner(playerScoring, computerScoring);
 }
 
 document.querySelector("#scissors").onclick = function() {
@@ -63,7 +66,6 @@ document.querySelector("#scissors").onclick = function() {
     computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
 
-    const mainPage = document.querySelector(".mainPage");
     roundExplanation.classList.add("explain");
     roundExplanation.textContent = `You chose ${playerSelection} and the computer chose
     ${computerSelection}. ${playRound(playerSelection,computerSelection)}`;
@@ -78,6 +80,8 @@ document.querySelector("#scissors").onclick = function() {
     mainPage.appendChild(score);
     score.appendChild(computerScore);
     score.appendChild(playerScore);
+
+    declareWinner(playerScoring, computerScoring);
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -108,8 +112,14 @@ function keepScore(outcome) {
 
 function declareWinner(playerScoring, computerScoring) {
     if(playerScoring == 5) {
-        return "Congratulations, you won the game!";
+        let winner = document.createElement("div");
+        winner.classList.add("explain");
+        winner.textContent = "Congratulations, you won the game!";
+        mainPage.appendChild(winner);
     } else if(computerScoring == 5) {
-        return "Sorry, you lost the game. Better luck next time!"
+        let winner = document.createElement("div");
+        winner.classList.add("explain");
+        winner.textContent = "Sorry, you lost the game. Better luck next time!"
+        mainPage.appendChild(winner);
     }
 }
